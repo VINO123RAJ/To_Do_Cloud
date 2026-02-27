@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cloud Todo App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ================= AUTH SECTION ================= -->
+    <div class="card" id="authCard">
+        <h3>Login / Register</h3>
+
+        <div class="input-wrapper">
+            <input type="email" id="email" placeholder="Enter email" required>
+            <input type="password" id="password" placeholder="Enter password" required>
+
+            <button id="registerBtn">Register</button>
+            <button id="loginBtn">Login</button>
+        </div>
+    </div>
+
+    <!-- ================= MAIN APP (Hidden Until Login) ================= -->
+    <div id="appContent" style="display: none;">
+
+        <!-- Header -->
+        <header class="header">
+            <h1>Cloud Todo App</h1>
+            <button class="logout-btn">Logout</button>
+        </header>
+
+        <!-- Add Task Card -->
+        <div class="card">
+            <div class="input-wrapper">
+                <input type="text" id="taskInput" placeholder="Enter your task..." />
+                <input type="datetime-local" id="taskDateTime" />
+                <button id="addBtn">Add Task</button>
+            </div>
+        </div>
+
+        <!-- Task List Card -->
+        <div class="card">
+            <h3>Your Tasks</h3>
+            <ul id="taskList"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Important: Must be module for Firebase -->
+<script type="module" src="app.js"></script>
+
+</body>
+</html>

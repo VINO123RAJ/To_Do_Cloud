@@ -1,0 +1,253 @@
+/* ================= GLOBAL RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  margin-bottom: 24px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= AUTH ================= */
+#authCard h3 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 24px;
+  color: #2d3748;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ================= INPUTS ================= */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="datetime-local"] {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  width: 100%;
+  background: #f8fafc;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* ================= BUTTON BASE ================= */
+button {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* ================= AUTH BUTTONS ================= */
+#registerBtn {
+  background: #667eea;
+  color: white;
+}
+
+#registerBtn:hover {
+  background: #5a67d8;
+  transform: translateY(-1px);
+}
+
+#loginBtn {
+  background: #48bb78;
+  color: white;
+}
+
+#loginBtn:hover {
+  background: #38a169;
+  transform: translateY(-1px);
+}
+
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ================= LOGOUT BUTTON ================= */
+.logout-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: #e53e3e;
+  color: white;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  background: #c53030;
+}
+
+/* ================= ADD TASK BUTTON ================= */
+#addBtn {
+  background: #667eea;
+  color: white;
+  margin-top: 5px;
+}
+
+#addBtn:hover {
+  background: #5a67d8;
+  transform: translateY(-1px);
+}
+
+/* ================= TASK LIST ================= */
+#taskList {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ================= TASK ITEM ================= */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= CHECKBOX ================= */
+.task-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+/* ================= TASK CONTENT ================= */
+.task-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-content span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.task-content small {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 4px;
+}
+
+/* ================= COMPLETED STATE ================= */
+.completed {
+  text-decoration: line-through;
+  color: #a0aec0 !important;
+  opacity: 0.7;
+}
+
+/* ================= DELETE BUTTON ================= */
+.delete-btn {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.delete-btn:hover {
+  background: #feb2b2;
+}
+
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 480px) {
+
+  body {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  #authCard h3 {
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .task-item {
+    padding: 14px;
+  }
+
+  .task-content span {
+    font-size: 14px;
+  }
+
+  .task-content small {
+    font-size: 11px;
+  }
+}
