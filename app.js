@@ -302,3 +302,7 @@ setInterval(() => {
     });
 
 }, 30000); // every 30 seconds
+
+const footerText = document.getElementById("footerText");
+const currentYear = new Date().getFullYear();
+footerText.textContent = `© ${currentYear} Vinothraj, Software Developer | vinoloke1973@gmail.com`;

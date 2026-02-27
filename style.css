@@ -18,17 +18,29 @@ body {
 
 /* ================= CONTAINER ================= */
 .container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+  max-width: 600px;  /* Optional: better for large screens */
   width: 100%;
-  max-width: 460px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Make app content take all available space */
+#appContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* ================= CARD ================= */
 .card {
   background: #ffffff;
-  padding: 30px;
+  padding: 24px;
   border-radius: 18px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   transition: transform 0.2s ease;
 }
 
@@ -151,6 +163,12 @@ button {
   gap: 14px;
 }
 
+#taskList {
+  max-height: 200px; /* Reduced from 300px to 200px */
+  overflow-y: auto;
+  padding-right: 4px; /* Prevent content cut off */
+}
+
 /* ================= TASK ITEM ================= */
 .task-item {
   display: flex;
@@ -161,7 +179,9 @@ button {
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   transition: all 0.2s ease;
+  
 }
+
 
 .task-item:hover {
   transform: translateY(-2px);
@@ -173,6 +193,7 @@ button {
   height: 18px;
   accent-color: #667eea;
   cursor: pointer;
+  
 }
 
 /* ================= TASK CONTENT ================= */
@@ -212,6 +233,53 @@ button {
 
 .delete-btn:hover {
   background: #feb2b2;
+}
+
+/* ================= TASK LIST SCROLLABLE ================= */
+#taskList {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  max-height: 300px; /* fixed height limit */
+  overflow-y: auto;  /* enable vertical scrolling */
+  padding-right: 4px; /* avoid cutting content near hidden scrollbar */
+}
+
+/* ================= HIDE SCROLLBAR ================= */
+/* For Webkit browsers (Chrome, Edge, Safari) */
+#taskList::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* For Firefox */
+#taskList {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* Make task list scrollable with max height */
+.task-list-card {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+.task-list-card::-webkit-scrollbar {
+  display: none;
+}
+
+/* Footer always at bottom of appContent */
+.footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  color: #e2e8f0;
+  margin-top: auto; /* Push footer to bottom */
 }
 
 /* ================= MOBILE OPTIMIZATION ================= */
