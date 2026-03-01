@@ -193,6 +193,7 @@ addBtn.addEventListener("click", async () => {
             title: title,
             dueTime: dueTime,
             completed: false,
+            remarks: "", // 👈 new field
             createdAt: serverTimestamp()
         });
 
@@ -259,6 +260,14 @@ function loadTasks(uid) {
             content.appendChild(titleEl);
             content.appendChild(timeEl);
 
+            if (task.remarks) {
+                const remarksEl = document.createElement("small");
+                remarksEl.textContent = `Remark: ${task.remarks}`;
+                remarksEl.style.display = "block";
+                remarksEl.style.color = "gray";
+                content.appendChild(remarksEl);
+            }
+
             // Delete
             const deleteBtn = document.createElement("button");
             deleteBtn.textContent = "Delete";
@@ -269,8 +278,33 @@ function loadTasks(uid) {
                 notifiedTasks.delete(taskId);
             });
 
+            // ================= REMARKS BUTTON =================
+            const remarksBtn = document.createElement("button");
+            remarksBtn.textContent = "📝";
+            remarksBtn.className = "remarks-btn";
+
+            remarksBtn.addEventListener("click", async () => {
+
+                if (!checkbox.checked) {
+                    alert("Complete the task before adding remarks.");
+                    return;
+                }
+
+                const existingRemark = task.remarks || "";
+                const userRemark = prompt("Enter your remarks:", existingRemark);
+
+                if (userRemark !== null) {
+                    await updateDoc(doc(db, "users", uid, "tasks", taskId), {
+                        remarks: userRemark
+                    });
+                }
+            });
+
+
+            // Append in correct order
             li.appendChild(checkbox);
             li.appendChild(content);
+            li.appendChild(remarksBtn);
             li.appendChild(deleteBtn);
 
             taskList.appendChild(li);
